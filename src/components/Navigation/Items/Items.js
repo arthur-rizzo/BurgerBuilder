@@ -4,8 +4,8 @@ import Item from './Item';
 
 const items = () => (
     <ul className={classes.Items}>
-        <Item link="/" active>BurgerBuilder</Item>
-        <Item link="/">Checkout</Item>
+        <Item link="/" exact>BurgerBuilder</Item>
+        <Item link="/orders">Orders</Item>
     </ul>
 );
  
