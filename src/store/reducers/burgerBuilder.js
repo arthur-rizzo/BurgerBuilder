@@ -10,7 +10,8 @@ const INGREDIENT_PRICES = {
 const initialState = {
     ingredients: null,
     totalPrice: 4,
-    error: false
+    error: false,
+    building: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -43,7 +44,8 @@ function setIngredients(state, action) {
         ...state,
         ingredients: action.ingredients,
         error: false,
-        totalPrice: 4
+        totalPrice: 4,
+        building: false
     };
 }
 
@@ -54,7 +56,8 @@ function removeIngredient(state, action) {
             ...state.ingredients,
             [action.ingredientName]: Math.max(0, state.ingredients[action.ingredientName] - 1)
         },
-        totalPrice: state.totalPrice - INGREDIENT_PRICES[action.ingredientName]
+        totalPrice: state.totalPrice - INGREDIENT_PRICES[action.ingredientName],
+        building: true
     };
 }
 
@@ -65,7 +68,8 @@ function addIngredient(state, action) {
             ...state.ingredients,
             [action.ingredientName]: state.ingredients[action.ingredientName] + 1
         },
-        totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName]
+        totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName],
+        building: true
     };
     return newState;
 }

@@ -15,7 +15,9 @@ const sidedrawer = (props) => {
             <Backdrop show={props.open} clicked={props.closed}></Backdrop>
             <div className={attachedClasses.join(' ')}>
                 <div className={classes.Logo}><Logo/></div>
-                <nav><Items></Items></nav>
+                <nav>
+                    <Items isAuthenticated={props.isAuth}/>
+                </nav>
             </div>
         </React.Fragment>
     );
